@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left-to-Right Typing Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            overflow: hidden;
+        }
+
+        .text {
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid white; /* Blinking cursor effect */
+            width: 0;
+            background:var(--gradient);
+            animation: typing 3s steps(12) forwards, blinkCursor 0.6s infinite;
+        }
+
+        /* Typing effect (expands width left to right) */
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 12ch; } /* Adjust to match text length */
+        }
+
+        /* Cursor blinking effect */
+        @keyframes blinkCursor {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <div class="text">Hello World</div>
+</body>
+</html>
